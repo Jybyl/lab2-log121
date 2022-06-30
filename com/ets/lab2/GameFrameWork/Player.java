@@ -2,7 +2,7 @@ package com.ets.lab2.GameFrameWork;
 
 public class Player {
     private String name;
-    private Score score;
+    private Score score = new Score(0);
 
     public Player(String name) {
         this.name = name;
@@ -25,7 +25,8 @@ public class Player {
         return score;
     }
 
-    public void setScore(Score score) {
+    public void setScore(int points) {
         this.score = score;
+        score.setPoints(points);
     }
 }

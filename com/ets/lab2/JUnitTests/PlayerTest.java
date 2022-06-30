@@ -1,6 +1,7 @@
 package com.ets.lab2.JUnitTests;
 
 import com.ets.lab2.GameFrameWork.Player;
+import com.ets.lab2.GameFrameWork.Score;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ public class PlayerTest {
     @BeforeEach
     void setUp(){
         player = new Player("bob");
+        Score score = new Score(0);
     }
 
     @Test
@@ -34,11 +36,15 @@ public class PlayerTest {
         String name = player.getName();
         assertEquals(name, "Player1");
     }
-
+    @Test
     void getScore(){
 
-    }
-    void setScore(){
 
+        assertEquals(player.getScore().getPoints(), 0);
+    }
+    @Test
+    void setScore(){
+        player.setScore(7);
+        assertEquals(player.getScore().getPoints(), 7);
     }
 }
