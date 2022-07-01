@@ -1,5 +1,7 @@
 package com.ets.lab2.GameFrameWork;
 
+import java.util.Iterator;
+
 public class Game extends GameTemplate implements IStrategy{
     private int currentRound;
     private int rounds;
@@ -20,8 +22,17 @@ public class Game extends GameTemplate implements IStrategy{
     }
 
     @Override
-    public Player calculateWinner(Game g) {
-        return null;
+    public Player calculateWinner() {
+        CollectionPlayer players = this.getPlayers();
+        players.createIterator();
+        Iterator<Player> it = players.playerIterator;
+        Player currWinner = new Player("unknown");
+        if(it.hasNext()) currWinner = it.next();
+        while(it.hasNext()){
+            Player nextPlayer = it.next();
+            if(currWinner.getScore().getPoints() < nextPlayer.getScore().getPoints()) currWinner = nextPlayer;
+        }
+        return currWinner;
     }
 
     @Override
