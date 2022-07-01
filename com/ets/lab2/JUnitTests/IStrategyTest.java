@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class IStrategyTest {
     @BeforeEach
     void setup(){
-        Game game = new Game();
+        Game game = new Game(5, 2, 1, 5, 3);
 
     }
 
