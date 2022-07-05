@@ -1,5 +1,7 @@
 package com.ets.lab2.JUnitTests;
 
+import com.ets.lab2.Bunco.BuncoFactory;
+import com.ets.lab2.GameFrameWork.DiceFactory;
 import com.ets.lab2.GameFrameWork.Player;
 import com.ets.lab2.GameFrameWork.Score;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +16,9 @@ public class PlayerTest {
     Player player;
     @BeforeEach
     void setUp(){
+        BuncoFactory buncoFactory = new BuncoFactory();
+        DiceFactory diceFactory = new DiceFactory();
+        diceFactory.generateDice();
         player = new Player("bob");
         Score score = new Score(0);
     }

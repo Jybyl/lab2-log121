@@ -1,5 +1,7 @@
 package com.ets.lab2.GameFrameWork;
 
+import static com.ets.lab2.GameFrameWork.CollectionDice.diceIterator;
+
 public class Player {
     private String name;
     private Score score = new Score(0);

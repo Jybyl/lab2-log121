@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CollectionDice {
-    private ArrayList<Dice> dies = new ArrayList<>();
-    public Iterator diceIterator;
+    private ArrayList<Dice> dies;
+    public static Iterator diceIterator;
+
+    public CollectionDice(){
+        dies = new ArrayList<>();
+
+    }
     public void addDice(){
+
         Dice dice = new Dice(6);
         dies.add(dice);
     }
