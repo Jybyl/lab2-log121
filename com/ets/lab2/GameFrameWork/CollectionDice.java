@@ -5,14 +5,17 @@ import java.util.Iterator;
 
 public class CollectionDice {
     private ArrayList<Dice> dies = new ArrayList<>();
-    public Iterator diceIterator;
-    public void addDice(){
-        Dice dice = new Dice(6);
-        dies.add(dice);
+    public static Iterator<Dice> diceIterator;
+
+
+    public void addDice(Dice d){
+        dies.add(d);
     }
     public void createDiceIterator(){
         if(!dies.isEmpty()) {
+            System.out.println("Created iterator");
             diceIterator = dies.iterator();
         }
     }
+
 }

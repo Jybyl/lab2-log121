@@ -7,10 +7,10 @@ public class Game extends GameTemplate implements IStrategy{
     private int rounds;
     private Rules ruleset;
 
-    public Game(int rounds, int playerLimit, int diceLimit, int roundLimit, int pointLimit){
+    public Game(int rounds, int playerLimit, int diceLimit, int roundLimit){
         this.currentRound = 0;
         this.rounds = rounds;
-        this.ruleset = new Rules(playerLimit,diceLimit,roundLimit,pointLimit);
+        this.ruleset = new Rules(playerLimit,diceLimit,roundLimit);
     }
 
     public Rules getRuleset() {
@@ -36,11 +36,11 @@ public class Game extends GameTemplate implements IStrategy{
     }
 
     @Override
-    public Score calculateScoreTurn(Game g){
+    public Score calculateScoreTurn(){
         return null;
     }
 
-    public void setRules(int rounds, int playerLimit, int diceLimit, int roundLimit, int pointLimit){
-        this.ruleset = new Rules(playerLimit,diceLimit,roundLimit,pointLimit);
+    public void setRules(int rounds, int playerLimit, int diceLimit, int roundLimit){
+        this.ruleset = new Rules(playerLimit,diceLimit,roundLimit);
     }
 }

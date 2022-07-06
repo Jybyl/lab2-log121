@@ -14,6 +14,42 @@ public class BuncoTest {
 
     @BeforeEach
     void setup(){
-        bunco = new BuncoFactory().generateBuncoGame();
+        Player player1 = new Player("Bob");
+        Player player2 = new Player("Tim");
+        bunco = new BuncoFactory().generateBuncoGame(new CollectionPlayer());
+    }
+
+    @Test
+    void getPlayersTest(){
+
+    }
+
+    @Test
+    void setPlayersTest(){
+
+    }
+
+
+    @Test
+    void getBuncoRulesTest(){
+
+    }
+
+    @Test
+    void setBuncoRulesTest(){
+
+    }
+    @Test
+    void getCurrentRoundTest(){
+
+    }
+    @Test
+    void setCurrentRoundTest(){
+
+    }
+
+    @Test
+    void calculateScoreTurnTest(){
+
     }
 }

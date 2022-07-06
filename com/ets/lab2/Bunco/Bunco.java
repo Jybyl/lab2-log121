@@ -2,22 +2,23 @@ package com.ets.lab2.Bunco;
 
 import com.ets.lab2.GameFrameWork.*;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Bunco extends GameTemplate{
-    private Rules buncoRules;
+import static com.ets.lab2.GameFrameWork.CollectionPlayer.playerIterator;
 
-    public Bunco(int playerLimit, int diceLimit, int roundLimit, int pointLimit){
+public class Bunco extends GameTemplate implements IStrategy{
+    private Rules buncoRules;
+    private int currentRound;
+
+    public Bunco(int playerLimit, int diceLimit, int roundLimit){
         super();
-        this.buncoRules = new Rules(playerLimit,diceLimit,roundLimit,pointLimit);
+        this.buncoRules = new Rules(playerLimit,diceLimit,roundLimit);
+        this.currentRound = 0;
     }
 
     public CollectionPlayer getPlayers(){
         return super.getPlayers();
-    }
-
-    public void setPlayers(CollectionPlayer players){
-        super.setPlayers(players);
     }
 
     public Rules getBuncoRules() {
@@ -26,6 +27,14 @@ public class Bunco extends GameTemplate{
 
     public void setBuncoRules(Rules buncoRules) {
         this.buncoRules = buncoRules;
+    }
+
+    public int getCurrentRound() {
+        return currentRound;
+    }
+
+    public void setCurrentRound(int currentRound) {
+        this.currentRound = currentRound;
     }
 
     @Override
@@ -43,7 +52,17 @@ public class Bunco extends GameTemplate{
     }
 
     @Override
-    public Score calculateScoreTurn(Game g) {
+    public Score calculateScoreTurn() {
+        CollectionPlayer players = this.getPlayers();
+        while(playerIterator.hasNext()){
+            Player p = playerIterator.next();
+        }
+        ArrayList<Integer> rollNumbers = player.rollDice();
+        for(int i = 0; i < rollNumbers.size(); i++){
+            int rollNumber = rollNumbers.get(i);
+            System.out.println(rollNumber);
+        }
         return null;
     }
+
 }
