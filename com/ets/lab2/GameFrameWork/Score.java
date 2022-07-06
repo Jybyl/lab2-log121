@@ -26,10 +26,11 @@ public class Score implements  IScoreStrategy{
     }
 
     /**
-     * ??????????
-     * @return
+     * Calcule le nouveau score obtenu.
+     * @return le nouveau score
      */
-    public int calculateScore(){
-        return 0;
+    public int calculateScore(int ps){
+        this.points += ps;
+        return this.points;
     }
 }
