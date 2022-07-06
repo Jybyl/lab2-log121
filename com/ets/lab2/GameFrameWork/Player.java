@@ -15,10 +15,12 @@ public class Player implements Comparable<Player>{
      * Retourne une liste des valeurs des dés lancés.
      * @return une liste des valeurs des dés lancés
      */
-    public ArrayList<Integer> rollDice(){
+    public ArrayList<Integer> rollDice(CollectionDice die){
         ArrayList<Integer> playerRolls = new ArrayList<>();
-        while(diceIterator.hasNext()){
-            Dice dice = diceIterator.next();
+
+        DiceIterator iterator = die.createIterator();
+        while(iterator.hasNext()){
+            Dice dice = iterator.getNext();
             playerRolls.add(dice.roll());
         }
         return playerRolls;

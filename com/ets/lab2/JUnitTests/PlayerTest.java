@@ -2,10 +2,7 @@ package com.ets.lab2.JUnitTests;
 
 import com.ets.lab2.Bunco.Bunco;
 import com.ets.lab2.Bunco.BuncoFactory;
-import com.ets.lab2.GameFrameWork.CollectionPlayer;
-import com.ets.lab2.GameFrameWork.DiceFactory;
-import com.ets.lab2.GameFrameWork.Player;
-import com.ets.lab2.GameFrameWork.Score;
+import com.ets.lab2.GameFrameWork.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,12 +16,13 @@ public class PlayerTest {
 
     Player player;
     Bunco bunco;
+    CollectionDice die;
     @BeforeEach
     void setUp(){
         BuncoFactory buncoFactory = new BuncoFactory();
         DiceFactory diceFactory = new DiceFactory();
         player = new Player("bob");
-        diceFactory.generateDice();
+        die = diceFactory.generateDice();
         bunco = buncoFactory.generateBuncoGame(new CollectionPlayer());
 
         Score score = new Score(0);
@@ -33,7 +31,7 @@ public class PlayerTest {
     @Test
     @DisplayName("Player roll test")
     void rollDice(){
-        ArrayList<Integer> rollNumbers = player.rollDice();
+        ArrayList<Integer> rollNumbers = player.rollDice(die);
         for(int i = 0; i < rollNumbers.size(); i++){
             int rollNumber = rollNumbers.get(i);
             System.out.println(rollNumber);
