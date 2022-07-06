@@ -38,17 +38,19 @@ public class Bunco extends GameTemplate implements IStrategy{
     }
 
     @Override
-    public Player calculateWinner() {
-        CollectionPlayer players = this.getPlayers();
-        players.createIterator();
-        Iterator<Player> it = players.playerIterator;
-        Player currWinner = new Player("unknown");
-        if(it.hasNext()) currWinner = it.next();
-        while(it.hasNext()){
-            Player nextPlayer = it.next();
-            if(currWinner.getScore().getPoints() < nextPlayer.getScore().getPoints()) currWinner = nextPlayer;
-        }
-        return currWinner;
+    public Player[] calculateWinner() {
+
+//        CollectionPlayer players = this.getPlayers();
+//        players.createIterator();
+//        Iterator<Player> it = players.playerIterator;
+//        Player currWinner = new Player("unknown");
+//        if(it.hasNext()) currWinner = it.next();
+//        while(it.hasNext()){
+//            Player nextPlayer = it.next();
+//            if(currWinner.getScore().getPoints() < nextPlayer.getScore().getPoints()) currWinner = nextPlayer;
+//        }
+        Player[] winners = {new Player("dawd")};
+        return winners;
     }
 
     @Override

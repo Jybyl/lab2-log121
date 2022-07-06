@@ -1,8 +1,8 @@
 package com.ets.lab2.GameFrameWork;
 import java.util.ArrayList;
 
-import static com.ets.lab2.GameFrameWork.CollectionDice.diceIterator;
-public class Player {
+
+public class Player implements Comparable<Player>{
     private String name;
     private Score score;
 
@@ -11,6 +11,11 @@ public class Player {
         this.score = new Score(0);
     }
 
+    /**
+     * Cette méthode attribue une valeur aléatoire entre 1 et le nombre de côtés du dé
+     * @param
+     * @return
+     */
     public ArrayList<Integer> rollDice(){
         ArrayList<Integer> playerRolls = new ArrayList<>();
         while(diceIterator.hasNext()){
@@ -24,6 +29,10 @@ public class Player {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
@@ -34,5 +43,15 @@ public class Player {
 
     public void setScore(int points) {
         score.setPoints(points);
+    }
+
+    @Override
+    public int compareTo(Player o) {
+        int comparison = 0;
+        if(score.getPoints() < o.getScore().getPoints()) comparison = -1;
+        else if(score.getPoints() > o.getScore().getPoints()) comparison = 1;
+        else comparison = 0;
+
+        return comparison;
     }
 }

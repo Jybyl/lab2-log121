@@ -13,7 +13,7 @@ public class BuncoFactory {
         for(int i = 0; i < b.getBuncoRules().getDiceLimit(); i++){
             die.addDice(new Dice(b.getBuncoRules().getRoundLimit()));
         }
-        die.createDiceIterator();
+        die.createIterator();
         cp.createIterator();
         b.setDie(die);
         return b;

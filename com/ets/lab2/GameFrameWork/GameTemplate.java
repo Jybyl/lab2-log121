@@ -4,7 +4,7 @@ public abstract class GameTemplate {
     private CollectionPlayer players;
     private CollectionDice die;
 
-    public abstract Player calculateWinner();
+    public abstract Player[] calculateWinner();
     public CollectionPlayer getPlayers(){
         return players;
     }
