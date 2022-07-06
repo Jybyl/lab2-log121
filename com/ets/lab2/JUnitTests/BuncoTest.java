@@ -69,6 +69,8 @@ public class BuncoTest {
 
     @Test
     void calculateScoreTurnTest(){
-
+        for(int i = 0; i < bunco.getBuncoRules().getRoundLimit(); i++){
+            bunco.calculateScoreTurn();
+        }
     }
 }
