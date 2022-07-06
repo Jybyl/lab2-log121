@@ -53,7 +53,7 @@ public class Game extends GameTemplate implements IStrategy{
      * @return ????????????
      */
     @Override
-    public Player[] calculateScoreTurn(){
-        return null;
+    public void calculateScoreTurn(){
+
     }
 }

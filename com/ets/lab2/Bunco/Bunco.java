@@ -75,12 +75,11 @@ public class Bunco extends GameTemplate implements IStrategy{
     }
 
     /**
-     * Calcule le score des joueurs selon les nouvelles valeurs des dés et retourne le nouveau classement des joueurs.
-     * @return le nouveau classement des joueurs
+     * Calcule le score des joueurs selon les nouvelles valeurs des dés pour le tour actuel.
      */
     @Override
-    public Player[] calculateScoreTurn() {
-        System.out.println("***********ROUND " + this.getCurrentRound() + "***********");
+    public void calculateScoreTurn() {
+        System.out.println("***********TOUR " + this.getCurrentRound() + "***********");
         CollectionPlayer players = this.getPlayers();
         PlayerIterator pIterator = players.createIterator();
         while(pIterator.hasNext()){
@@ -114,22 +113,21 @@ public class Bunco extends GameTemplate implements IStrategy{
                      if(rollNumbers.get(0) == this.getCurrentRound()){
                          pRoundPoint += 21;
                          continueTurn = false;
-                         System.out.println("BUNCO!!!");
+                         System.out.println("BUNCO!!! +21");
                      }
                      //Mêmes chiffres, mais ne correspondent pas au tour
                      else{
                          pRoundPoint += 5;
-                         System.out.println("ALMOST BUNCO");
+                         System.out.println("PRESQUE BUNCO +5");
                      }
                  }
                  System.out.println("*****");
              }
-             System.out.println("Points earned this turn: "+pRoundPoint);
+             System.out.println("Nombre de points obtenus par "+p.getName()+": "+pRoundPoint);
              p.getScore().calculateScore(pRoundPoint);
+             System.out.println("-----");
         }
 
         this.setCurrentRound(this.getCurrentRound()+1);
-        return this.calculateWinner();
     }
-
 }

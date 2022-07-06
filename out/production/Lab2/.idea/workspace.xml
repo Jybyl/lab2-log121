@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2267e768-c134-4212-acfa-4142b6c3b56a" name="Changes" comment="" />
+    <list default="true" id="2267e768-c134-4212-acfa-4142b6c3b56a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/Bunco/Bunco.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/Bunco/Bunco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/IStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/IStrategy.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +40,7 @@
       <recent name="com.ets.lab2.GameFrameWork" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Driver">
+  <component name="RunManager" selected="JUnit.BuncoTest.calculateScoreTurnTest">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ets.lab2.Driver" />
       <module name="Lab2" />
@@ -46,6 +50,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuncoTest.calculateScoreTurnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ets.lab2.JUnitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ets.lab2.JUnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.BuncoTest" />
+      <option name="METHOD_NAME" value="calculateScoreTurnTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,22 +102,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IStrategyTest.calculateBuncoWinner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Lab2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ets.lab2.JUnitTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ets.lab2.JUnitTests" />
-      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.IStrategyTest" />
-      <option name="METHOD_NAME" value="calculateBuncoWinner" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PlayerTest.rollDice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Lab2" />
       <extension name="coverage">
@@ -116,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BuncoTest.calculateScoreTurnTest" />
         <item itemvalue="Application.Driver" />
         <item itemvalue="JUnit.IScoreStrategyTest.compareScore" />
         <item itemvalue="JUnit.CollectionPlayerTest.testIterator" />
         <item itemvalue="JUnit.PlayerTest.rollDice" />
-        <item itemvalue="JUnit.IStrategyTest.calculateBuncoWinner" />
       </list>
     </recent_temporary>
   </component>
