@@ -5,8 +5,6 @@ import com.ets.lab2.GameFrameWork.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.ets.lab2.GameFrameWork.CollectionPlayer.playerIterator;
-
 public class Bunco extends GameTemplate implements IStrategy{
     private Rules buncoRules;
     private int currentRound;
@@ -14,7 +12,7 @@ public class Bunco extends GameTemplate implements IStrategy{
     public Bunco(int playerLimit, int diceLimit, int roundLimit){
         super();
         this.buncoRules = new Rules(playerLimit,diceLimit,roundLimit);
-        this.currentRound = 0;
+        this.currentRound = 1;
     }
 
     /**
@@ -63,37 +61,75 @@ public class Bunco extends GameTemplate implements IStrategy{
      */
     @Override
     public Player[] calculateWinner() {
-
-//        CollectionPlayer players = this.getPlayers();
-//        players.createIterator();
-//        Iterator<Player> it = players.playerIterator;
-//        Player currWinner = new Player("unknown");
-//        if(it.hasNext()) currWinner = it.next();
-//        while(it.hasNext()){
-//            Player nextPlayer = it.next();
-//            if(currWinner.getScore().getPoints() < nextPlayer.getScore().getPoints()) currWinner = nextPlayer;
-//        }
-        Player[] winners = {new Player("dawd")};
-        return winners;
+        Player[] sortedPlayers = new Player[this.getBuncoRules().getPlayerLimit()];
+        CollectionPlayer players = this.getPlayers();
+        PlayerIterator pIterator = players.createIterator();
+        int index = 0;
+        while(pIterator.hasNext()){
+            Player p = pIterator.getNext();
+            sortedPlayers[index] = p;
+            System.out.println(p.getName()+" got "+p.getScore().getPoints()+" points");
+            ++index;
+        }
+        return sortedPlayers;
     }
 
     /**
-     * Calcule le score des joueurs selon les nouvelles valeurs des dés.
-     * @return ????????????
+     * Calcule le score des joueurs selon les nouvelles valeurs des dés et retourne le nouveau classement des joueurs.
+     * @return le nouveau classement des joueurs
      */
     @Override
-    public Score calculateScoreTurn() {
-//        CollectionPlayer players = this.getPlayers();
-//        Player p = null;
-//        while(playerIterator.hasNext()){
-//             p = playerIterator.next();
-//        }
-//        ArrayList<Integer> rollNumbers = p.rollDice();
-//        for(int i = 0; i < rollNumbers.size(); i++){
-//            int rollNumber = rollNumbers.get(i);
-//            System.out.println(rollNumber);
-//        }
-        return null;
+    public Player[] calculateScoreTurn() {
+        System.out.println("***********ROUND " + this.getCurrentRound() + "***********");
+        CollectionPlayer players = this.getPlayers();
+        PlayerIterator pIterator = players.createIterator();
+        while(pIterator.hasNext()){
+             Player p = pIterator.getNext();
+             int pRoundPoint = 0;
+             System.out.println(p.getName());
+             boolean continueTurn = true;
+             while(continueTurn){
+                 ArrayList<Integer> rollNumbers = p.rollDice(this.getDie());
+                 boolean sameValues = true;
+                 for(Integer number : rollNumbers){
+                     if(!number.equals(rollNumbers.get(0))) sameValues = false;
+                 }
+                 if(!sameValues){
+                     int turnPoints = 0;
+                     for(int i = 0; i < rollNumbers.size(); i++){
+                         int rollNumber = rollNumbers.get(i);
+                         System.out.println(rollNumber);
+
+                         //Même chiffre que le nombre du tour actuel
+                         if(rollNumber == this.getCurrentRound()){
+                             ++pRoundPoint;
+                             ++turnPoints;
+                         }
+                     }
+                     //Aucun chiffre correspond au tour
+                     if(turnPoints == 0) continueTurn = false;
+                 }
+                 else{
+                     //BUNCO!!
+                     if(rollNumbers.get(0) == this.getCurrentRound()){
+                         pRoundPoint += 21;
+                         continueTurn = false;
+                         System.out.println("BUNCO!!!");
+                     }
+                     //Mêmes chiffres, mais ne correspondent pas au tour
+                     else{
+                         pRoundPoint += 5;
+                         System.out.println("ALMOST BUNCO");
+                     }
+                 }
+                 System.out.println("*****");
+             }
+             System.out.println("Points earned this turn: "+pRoundPoint);
+             p.getScore().calculateScore(pRoundPoint);
+        }
+
+        this.setCurrentRound(this.getCurrentRound()+1);
+        return this.calculateWinner();
     }
 
 }

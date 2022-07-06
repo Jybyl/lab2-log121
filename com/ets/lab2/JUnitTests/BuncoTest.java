@@ -16,7 +16,10 @@ public class BuncoTest {
     void setup(){
         Player player1 = new Player("Bob");
         Player player2 = new Player("Tim");
-        bunco = new BuncoFactory().generateBuncoGame(new CollectionPlayer());
+        CollectionPlayer cp = new CollectionPlayer();
+        cp.addPlayer(player1);
+        cp.addPlayer(player2);
+        bunco = new BuncoFactory().generateBuncoGame(cp);
     }
 
     @Test
@@ -50,6 +53,8 @@ public class BuncoTest {
 
     @Test
     void calculateScoreTurnTest(){
-
+        for(int i = 0; i < bunco.getBuncoRules().getRoundLimit(); i++){
+            bunco.calculateScoreTurn();
+        }
     }
 }
