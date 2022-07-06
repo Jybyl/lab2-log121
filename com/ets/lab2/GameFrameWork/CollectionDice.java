@@ -3,7 +3,7 @@ package com.ets.lab2.GameFrameWork;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class CollectionDice extends{
+public class CollectionDice {
     private ArrayList<Dice> dies = new ArrayList<>();
     public static Iterator<Dice> diceIterator;
 
