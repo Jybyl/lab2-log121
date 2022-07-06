@@ -24,7 +24,9 @@ public class PlayerTest {
         player = new Player("bob");
         die = diceFactory.generateDice();
         bunco = buncoFactory.generateBuncoGame(new CollectionPlayer());
-
+        die.addDice(new Dice(6));
+        die.addDice(new Dice(6));
+        die.addDice(new Dice(6));
         Score score = new Score(0);
     }
 
@@ -42,6 +44,7 @@ public class PlayerTest {
     @Test
     void getName(){
         player.setName("Player1");
+        System.out.println(player.getName());
         assertEquals(player.getName(), "Player1");
     }
     @Test

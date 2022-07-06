@@ -83,16 +83,16 @@ public class Bunco extends GameTemplate implements IStrategy{
      */
     @Override
     public Score calculateScoreTurn() {
-        CollectionPlayer players = this.getPlayers();
-        Player p = null;
-        while(playerIterator.hasNext()){
-             p = playerIterator.next();
-        }
-        ArrayList<Integer> rollNumbers = p.rollDice();
-        for(int i = 0; i < rollNumbers.size(); i++){
-            int rollNumber = rollNumbers.get(i);
-            System.out.println(rollNumber);
-        }
+//        CollectionPlayer players = this.getPlayers();
+//        Player p = null;
+//        while(playerIterator.hasNext()){
+//             p = playerIterator.next();
+//        }
+//        ArrayList<Integer> rollNumbers = p.rollDice();
+//        for(int i = 0; i < rollNumbers.size(); i++){
+//            int rollNumber = rollNumbers.get(i);
+//            System.out.println(rollNumber);
+//        }
         return null;
     }
 
