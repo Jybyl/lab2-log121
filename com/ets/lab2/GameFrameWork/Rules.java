@@ -4,13 +4,13 @@ public class Rules {
     private int playerLimit;
     private int diceLimit;
     private int roundLimit;
-    private int pointLimit;
 
-    public Rules(int playerLimit, int diceLimit, int roundLimit, int pointLimit) {
+
+    public Rules(int playerLimit, int diceLimit, int roundLimit) {
         this.playerLimit = playerLimit;
         this.diceLimit = diceLimit;
         this.roundLimit = roundLimit;
-        this.pointLimit = pointLimit;
+
     }
 
     public int getPlayerLimit() {
@@ -35,13 +35,5 @@ public class Rules {
 
     public void setRoundLimit(int roundLimit) {
         this.roundLimit = roundLimit;
-    }
-
-    public int getPointLimit() {
-        return pointLimit;
-    }
-
-    public void setPointLimit(int pointLimit) {
-        this.pointLimit = pointLimit;
     }
 }

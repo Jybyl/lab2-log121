@@ -4,21 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CollectionDice {
-    private ArrayList<Dice> dies;
-    public static Iterator diceIterator;
+    private ArrayList<Dice> dies = new ArrayList<>();
+    public static Iterator<Dice> diceIterator;
 
-    public CollectionDice(){
-        dies = new ArrayList<>();
 
-    }
-    public void addDice(){
-
-        Dice dice = new Dice(6);
-        dies.add(dice);
+    public void addDice(Dice d){
+        dies.add(d);
     }
     public void createDiceIterator(){
         if(!dies.isEmpty()) {
+            System.out.println("Created iterator");
             diceIterator = dies.iterator();
         }
     }
+
 }

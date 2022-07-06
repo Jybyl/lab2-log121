@@ -1,6 +1,7 @@
 package com.ets.lab2.JUnitTests;
 
 import com.ets.lab2.Bunco.Bunco;
+import com.ets.lab2.Bunco.BuncoFactory;
 import com.ets.lab2.GameFrameWork.CollectionPlayer;
 import com.ets.lab2.GameFrameWork.Game;
 import com.ets.lab2.GameFrameWork.IStrategy;
@@ -16,8 +17,8 @@ public class IStrategyTest {
 
     @BeforeEach
     void setup(){
-        game = new Game(5, 2, 1, 5, 3);
-        bunco = new Bunco(3, 1, 5, 3);
+        game = new Game(5, 2, 1, 5);
+        bunco = new BuncoFactory().generateBuncoGame(new CollectionPlayer());
     }
 
     @Test

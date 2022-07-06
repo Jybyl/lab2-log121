@@ -5,13 +5,16 @@ import java.util.Iterator;
 
 public class CollectionPlayer {
     private ArrayList<Player> players = new ArrayList<>();
-    public Iterator playerIterator;
+    public static Iterator<Player> playerIterator;
 
     public void addPlayer(Player p){
         players.add(p);
     }
     public void createIterator(){
-         playerIterator = players.iterator();
+        if(!players.isEmpty()) {
+            System.out.println("Created iterator");
+            playerIterator = players.iterator();
+        }
     }
     public int getPlayerNumber(){
         return players.size();
