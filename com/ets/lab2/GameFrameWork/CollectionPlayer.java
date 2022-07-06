@@ -7,7 +7,7 @@ import java.util.Iterator;
 
 public class CollectionPlayer implements Iterable<Player> {
     private ArrayList<Player> players = new ArrayList<>();
-    public static Iterator<Player> playerIterator;
+
 
     /**
      * Ajoute un joueur dans players.
@@ -32,13 +32,8 @@ public class CollectionPlayer implements Iterable<Player> {
      */
     @Override
     public PlayerIterator createIterator(){
-        if(!players.isEmpty()) {
-            System.out.println("Created iterator");
-            PlayerIterator playerIterator = new PlayerIterator(this);
-            return playerIterator;
 
-        }
-        return null;
+        return new PlayerIterator(this);
     }
 
     /**

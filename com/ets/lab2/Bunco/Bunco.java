@@ -5,7 +5,7 @@ import com.ets.lab2.GameFrameWork.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static com.ets.lab2.GameFrameWork.CollectionPlayer.playerIterator;
+
 
 public class Bunco extends GameTemplate implements IStrategy{
     private Rules buncoRules;

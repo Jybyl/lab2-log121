@@ -4,6 +4,7 @@ import com.ets.lab2.Bunco.Bunco;
 import com.ets.lab2.Bunco.BuncoFactory;
 import com.ets.lab2.GameFrameWork.CollectionPlayer;
 import com.ets.lab2.GameFrameWork.Player;
+import com.ets.lab2.GameFrameWork.PlayerIterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +37,8 @@ public class CollectionPlayerTest {
         Player p1 = new Player("P1");
         collectionPlayer.addPlayer(p);
         collectionPlayer.addPlayer(p1);
+        PlayerIterator iterator = collectionPlayer.createIterator();
         bunco = new BuncoFactory().generateBuncoGame(collectionPlayer);
-        assertNotEquals(collectionPlayer.playerIterator, null);
+        assertNotEquals(iterator, null);
     }
 }
