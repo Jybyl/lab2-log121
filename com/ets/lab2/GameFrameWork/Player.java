@@ -12,9 +12,8 @@ public class Player implements Comparable<Player>{
     }
 
     /**
-     * Cette méthode attribue une valeur aléatoire entre 1 et le nombre de côtés du dé
-     * @param
-     * @return
+     * Retourne une liste des valeurs des dés lancés.
+     * @return une liste des valeurs des dés lancés
      */
     public ArrayList<Integer> rollDice(){
         ArrayList<Integer> playerRolls = new ArrayList<>();
@@ -25,26 +24,43 @@ public class Player implements Comparable<Player>{
         return playerRolls;
     }
 
+    /**
+     * Retourne le nom du joueur.
+     * @return le nom du joueur
+     */
     public String getName() {
         return name;
     }
 
     /**
-     *
-     * @param name
+     * Modifie le nom du joueur au nom du joueur spécifié.
+     * @param name le nom spécifié
      */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Retourne le score du joueur.
+     * @return le score du joueur
+     */
     public Score getScore() {
         return score;
     }
 
+    /**
+     * Modifie le score du joueur au score du joueur spécifié.
+     * @param points le score du joueur spécifié
+     */
     public void setScore(int points) {
         score.setPoints(points);
     }
 
+    /**
+     * Compare le score de ce joueur avec celui d'un autre.
+     * @param o le joueur à comparer
+     * @return -1: Si ce joueur à un score inférieur au deuxième. 1: Si ce joueur à un score supérieur au deuxième. 0: Si les scores sont égaux.
+     */
     @Override
     public int compareTo(Player o) {
         int comparison = 0;
