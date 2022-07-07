@@ -17,7 +17,7 @@ public class IStrategyTest {
 
     @BeforeEach
     void setup(){
-        game = new Game(5, 2, 1, 5);
+        game = new Game(2, 1, 5);
         bunco = new BuncoFactory().generateBuncoGame(new CollectionPlayer());
     }
 

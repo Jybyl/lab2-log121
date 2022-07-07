@@ -42,20 +42,20 @@ public class BuncoTest {
 
 
     @Test
-    void getBuncoRulesTest(){
+    void getRulesetTest(){
         Rules rules = new Rules(players.getPlayerNumber(),3,6);
-        assertEquals(bunco.getBuncoRules().getDiceLimit(), rules.getDiceLimit());
-        assertEquals(bunco.getBuncoRules().getPlayerLimit(), rules.getPlayerLimit());
-        assertEquals(bunco.getBuncoRules().getRoundLimit(), rules.getRoundLimit());
+        assertEquals(bunco.getRuleset().getDiceLimit(), rules.getDiceLimit());
+        assertEquals(bunco.getRuleset().getPlayerLimit(), rules.getPlayerLimit());
+        assertEquals(bunco.getRuleset().getRoundLimit(), rules.getRoundLimit());
     }
 
     @Test
     void setBuncoRulesTest(){
         Rules rules = new Rules(players.getPlayerNumber()+1,4,7);
-        bunco.setBuncoRules(rules);
-        assertEquals(bunco.getBuncoRules().getDiceLimit(), rules.getDiceLimit());
-        assertEquals(bunco.getBuncoRules().getPlayerLimit(), rules.getPlayerLimit());
-        assertEquals(bunco.getBuncoRules().getRoundLimit(), rules.getRoundLimit());
+        bunco.setRuleset(rules);
+        assertEquals(bunco.getRuleset().getDiceLimit(), rules.getDiceLimit());
+        assertEquals(bunco.getRuleset().getPlayerLimit(), rules.getPlayerLimit());
+        assertEquals(bunco.getRuleset().getRoundLimit(), rules.getRoundLimit());
     }
     @Test
     void getCurrentRoundTest(){
@@ -69,13 +69,32 @@ public class BuncoTest {
 
     @Test
     void calculateWinner(){
+        Player p1 = new Player("Bob");
+        p1.setScore(24);
+        Player p2 = new Player("Tim");
+        p2.setScore(30);
+        Player p3 = new Player("Joe");
+        p3.setScore(25);
+        CollectionPlayer cp = new CollectionPlayer();
+        cp.addPlayer(p1);
+        cp.addPlayer(p2);
+        cp.addPlayer(p3);
 
+        bunco = new BuncoFactory().generateBuncoGame(cp);
+        Player[] winners = bunco.calculateWinner();
+        for(Player winner : winners){
+            System.out.println(winner.getName()+" - "+winner.getScore().getPoints());
+        }
+
+        assertEquals(winners[0],p2);
     }
 
     @Test
     void calculateScoreTurnTest(){
-        for(int i = 0; i < bunco.getBuncoRules().getRoundLimit(); i++){
+        for(int i = 0; i < bunco.getRuleset().getRoundLimit(); i++){
             bunco.calculateScoreTurn();
         }
+        int finalRound = bunco.getCurrentRound();
+        assertEquals(7,finalRound);
     }
 }

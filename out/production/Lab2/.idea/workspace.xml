@@ -3,8 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="2267e768-c134-4212-acfa-4142b6c3b56a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/com/ets/lab2/Bunco/Bunco.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/Bunco/Bunco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/IStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/IStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/GameFrameWork/GameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/JUnitTests/BuncoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/JUnitTests/BuncoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/ets/lab2/JUnitTests/IStrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/ets/lab2/JUnitTests/IStrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/Bunco/Bunco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/Bunco/Bunco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/GameFrameWork/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/GameFrameWork/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/GameFrameWork/GameFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/GameFrameWork/GameFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/JUnitTests/BuncoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/JUnitTests/BuncoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/JUnitTests/IStrategyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2/com/ets/lab2/JUnitTests/IStrategyTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +49,7 @@
       <recent name="com.ets.lab2.GameFrameWork" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BuncoTest.calculateScoreTurnTest">
+  <component name="RunManager" selected="JUnit.BuncoTest.getRulesetTest">
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ets.lab2.Driver" />
       <module name="Lab2" />
@@ -70,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CollectionPlayerTest.testIterator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BuncoTest.calculateWinner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Lab2" />
       <extension name="coverage">
         <pattern>
@@ -79,8 +88,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.ets.lab2.JUnitTests" />
-      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.CollectionPlayerTest" />
-      <option name="METHOD_NAME" value="testIterator" />
+      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.BuncoTest" />
+      <option name="METHOD_NAME" value="calculateWinner" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuncoTest.getRulesetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Lab2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ets.lab2.JUnitTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ets.lab2.JUnitTests" />
+      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.BuncoTest" />
+      <option name="METHOD_NAME" value="getRulesetTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,29 +127,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.rollDice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Lab2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ets.lab2.JUnitTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ets.lab2.JUnitTests" />
-      <option name="MAIN_CLASS_NAME" value="com.ets.lab2.JUnitTests.PlayerTest" />
-      <option name="METHOD_NAME" value="rollDice" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BuncoTest.calculateScoreTurnTest" />
+        <item itemvalue="JUnit.BuncoTest.getRulesetTest" />
         <item itemvalue="Application.Driver" />
+        <item itemvalue="JUnit.BuncoTest.calculateScoreTurnTest" />
+        <item itemvalue="JUnit.BuncoTest.calculateWinner" />
         <item itemvalue="JUnit.IScoreStrategyTest.compareScore" />
-        <item itemvalue="JUnit.CollectionPlayerTest.testIterator" />
-        <item itemvalue="JUnit.PlayerTest.rollDice" />
       </list>
     </recent_temporary>
   </component>

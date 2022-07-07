@@ -27,7 +27,8 @@ public class Bunco extends GameTemplate implements IStrategy{
      * Retourne les règles du jeu.
      * @return les règles du jeu
      */
-    public Rules getBuncoRules() {
+    @Override
+    public Rules getRuleset() {
         return buncoRules;
     }
 
@@ -35,7 +36,7 @@ public class Bunco extends GameTemplate implements IStrategy{
      * Modifie les règles du jeu aux règles spécifiées.
      * @param buncoRules les nouvelles règles
      */
-    public void setBuncoRules(Rules buncoRules) {
+    public void setRuleset(Rules buncoRules) {
         this.buncoRules = buncoRules;
     }
 
@@ -55,22 +56,35 @@ public class Bunco extends GameTemplate implements IStrategy{
         this.currentRound = currentRound;
     }
 
+    private void sortPlayerArr(Player[] ps){
+            int n = ps.length;
+            for (int i = 0; i < n - 1; i++)
+                for (int j = 0; j < n - i - 1; j++){
+                    if (ps[j].getScore().getPoints() < ps[j + 1].getScore().getPoints()) {
+                        // swap ps[j+1] and ps[j]
+                        Player temp = ps[j];
+                        ps[j] = ps[j + 1];
+                        ps[j + 1] = temp;
+                    }
+                }
+    }
+
     /**
      * Retourne un tableau des joueurs selon un ordre décroissant de scores.
      * @return un tableau des joueurs selon un ordre décroissant de scores
      */
     @Override
     public Player[] calculateWinner() {
-        Player[] sortedPlayers = new Player[this.getBuncoRules().getPlayerLimit()];
+        Player[] sortedPlayers = new Player[this.getRuleset().getPlayerLimit()];
         CollectionPlayer players = this.getPlayers();
         PlayerIterator pIterator = players.createIterator();
         int index = 0;
         while(pIterator.hasNext()){
             Player p = pIterator.getNext();
             sortedPlayers[index] = p;
-            System.out.println(p.getName()+" got "+p.getScore().getPoints()+" points");
             ++index;
         }
+        sortPlayerArr(sortedPlayers);
         return sortedPlayers;
     }
 

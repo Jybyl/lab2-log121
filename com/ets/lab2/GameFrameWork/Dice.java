@@ -16,7 +16,7 @@ public class Dice implements Comparable<Dice>{
      */
     public int roll(){
         Random r = new Random();
-        value = r.nextInt(6) + 1;
+        value = r.nextInt(sides) + 1;
         return value;
     }
 

@@ -13,8 +13,8 @@ public class BuncoFactory {
         b.setPlayers(cp);
         DiceFactory df = new DiceFactory();
         CollectionDice die = df.generateDice();
-        for(int i = 0; i < b.getBuncoRules().getDiceLimit(); i++){
-            die.addDice(new Dice(b.getBuncoRules().getRoundLimit()));
+        for(int i = 0; i < b.getRuleset().getDiceLimit(); i++){
+            die.addDice(new Dice(b.getRuleset().getRoundLimit()));
         }
         die.createIterator();
         cp.createIterator();
