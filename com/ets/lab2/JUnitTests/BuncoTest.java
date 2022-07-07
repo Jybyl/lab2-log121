@@ -23,6 +23,13 @@ public class BuncoTest {
     }
 
     @Test
+    void testConstructor(){
+        assertEquals(bunco.getCurrentRound(),1);
+        assertEquals(bunco.getRuleset().getRoundLimit(),6);
+        assertEquals(bunco.getRuleset().getDiceLimit(),3);
+    }
+
+    @Test
     void getPlayersTest(){
         for(int i = 0; i < players.getPlayerNumber(); i++){
             assertEquals(players.getPlayer(i), bunco.getPlayers().getPlayer(i));

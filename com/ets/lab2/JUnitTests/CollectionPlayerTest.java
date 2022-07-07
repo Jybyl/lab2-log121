@@ -18,7 +18,22 @@ public class CollectionPlayerTest {
     @BeforeEach
     void setUp(){
         collectionPlayer = new CollectionPlayer();
+    }
 
+    @Test
+    void getPlayer(){
+        collectionPlayer.addPlayer(new Player("Bob"));
+        Player p2 = new Player("Jim");
+        collectionPlayer.addPlayer(p2);
+        assertEquals(p2,collectionPlayer.getPlayer(1));
+    }
+
+    @Test
+    void getPlayerNumber(){
+        collectionPlayer.addPlayer(new Player("Bob"));
+        collectionPlayer.addPlayer(new Player("Tim"));
+        collectionPlayer.addPlayer(new Player("Joe"));
+        assertEquals(collectionPlayer.getPlayerNumber(),3);
     }
 
     @Test
@@ -28,7 +43,6 @@ public class CollectionPlayerTest {
         collectionPlayer.addPlayer(p);
         int sizeAfter = collectionPlayer.getPlayerNumber();
         assertTrue(sizeAfter > sizeBefore);
-
     }
 
     @Test
