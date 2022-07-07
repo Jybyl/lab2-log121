@@ -61,7 +61,6 @@ public class Bunco extends GameTemplate implements IStrategy{
             for (int i = 0; i < n - 1; i++)
                 for (int j = 0; j < n - i - 1; j++){
                     if (ps[j].getScore().getPoints() < ps[j + 1].getScore().getPoints()) {
-                        // swap ps[j+1] and ps[j]
                         Player temp = ps[j];
                         ps[j] = ps[j + 1];
                         ps[j + 1] = temp;
