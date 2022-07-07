@@ -8,15 +8,27 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ScoreTest {
-
+    Score score;
     @BeforeEach
     void setup(){
-        Score score = new Score(0);
+         score = new Score(0);
+    }
+
+    @Test
+    void getScoreTest(){
+        assertEquals(score.getPoints(), 0);
+    }
+
+    @Test
+    void setScoreTest(){
+        score.setPoints(10);
+        assertEquals(score.getPoints(), 10);
     }
 
     @Test
     void calculateScore(){
-
+        score.calculateScore(10);
+        assertEquals(score.getPoints(), 10);
     }
 
     @Test

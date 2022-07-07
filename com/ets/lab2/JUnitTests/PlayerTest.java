@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerTest {
 
@@ -28,6 +27,12 @@ public class PlayerTest {
         die.addDice(new Dice(6));
         die.addDice(new Dice(6));
         Score score = new Score(0);
+    }
+
+    @Test
+    void playerConstructor(){
+        Player playerConstructor = new Player("New Player");
+        assertNotNull(playerConstructor);
     }
 
     @Test
@@ -55,13 +60,28 @@ public class PlayerTest {
     }
     @Test
     void getScore(){
-
-
         assertEquals(player.getScore().getPoints(), 0);
     }
     @Test
     void setScore(){
         player.setScore(7);
         assertEquals(player.getScore().getPoints(), 7);
+    }
+
+    @Test
+    void compareToTest(){
+        Player player1 = new Player("Player1");
+        Player player2 = new Player("Player2");
+        Player player3 = new Player("Player3");
+        ScoreComparator sc = new ScoreComparator();
+        Score s1 = new Score(20);
+        Score s2 = new Score(30);
+        Score s3 = new Score(20);
+        player1.setScore(s1.getPoints());
+        player2.setScore(s2.getPoints());
+        player3.setScore(s3.getPoints());
+        assertEquals(sc.compareScore(player1.getScore(),player2.getScore()),-1);
+        assertEquals(sc.compareScore(player2.getScore(),player1.getScore()),1);
+        assertEquals(sc.compareScore(player1.getScore(),player3.getScore()),0);
     }
 }
