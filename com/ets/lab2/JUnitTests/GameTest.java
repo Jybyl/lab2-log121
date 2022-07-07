@@ -14,7 +14,10 @@ public class GameTest {
 
     @BeforeEach
     void setup(){
-        game = new Game(2, 1, 5);
+        CollectionPlayer cp = new CollectionPlayer();
+        cp.addPlayer(new Player("Bob"));
+        cp.addPlayer(new Player("Joe"));
+        game = new GameFactory().generateGame(cp,2,5);
     }
 
     @Test
@@ -22,6 +25,30 @@ public class GameTest {
         assertTrue(game.getRuleset().getRoundLimit() == 5);
         assertTrue(game.getRuleset().getPlayerLimit() == 2);
         assertTrue(game.getRuleset().getPlayerLimit() == 2);
+    }
+
+    @Test
+    void getCurrentRound(){
+        assertTrue(game.getCurrentRound() == 1);
+        game.calculateScoreTurn();
+        assertTrue(game.getCurrentRound() == 2);
+    }
+
+    @Test
+    void setCurrentRound(){
+        game.setCurrentRound(3);
+        assertTrue(game.getCurrentRound() == 3);
+    }
+
+    @Test
+    void getRuleset(){
+        assertEquals(game.getRuleset().getDiceLimit(),2);
+    }
+
+    @Test
+    void setRuleset(){
+        game.setRuleset(new Rules(1,1,1));
+        assertEquals(game.getRuleset().getPlayerLimit(),1);
     }
 
     @Test
@@ -48,6 +75,10 @@ public class GameTest {
 
     @Test
     void calculateScoreTurn(){
-
+        for(int i = 0; i < game.getRuleset().getRoundLimit(); i++){
+            game.calculateScoreTurn();
+        }
+        int finalRound = game.getCurrentRound();
+        assertEquals(6,finalRound);
     }
 }
